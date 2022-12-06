@@ -49,11 +49,11 @@ button {
   flex-direction: row;
 }
 
+span button {
+  background-color: rgb(255, 136, 0);
+}
+
 .zero button {
   width: 10em;
   padding: 0.5em;
-}
-
-span button {
-  background-color: rgb(255, 136, 0);
 }
