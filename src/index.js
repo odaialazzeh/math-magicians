@@ -1,6 +1,11 @@
-import ReactDOM from 'react-dom';
-import Calculator from './calculator';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
 import './style.css';
+import App from './app';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<Calculator />);
+root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+);
