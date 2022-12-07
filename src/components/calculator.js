@@ -1,58 +1,70 @@
 import React from 'react';
-import Button from './Button';
-import Screen from './Screen';
+import calculate from '../logic/calculate';
 
 class Calculator extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
+  constructor() {
+    super();
+    this.state = {
+      total: 0,
+      next: null,
+      operation: null,
+    };
+    this.handleBtn = this.handleBtn.bind(this);
   }
 
-  render() {
-    return (
+  handleBtn = (btn) => {
+    this.setState((object) => calculate(object, btn));
+  };
 
+  render() {
+    const { total, operation, next } = this.state;
+    return (
       <div className="main">
-        <Screen />
+        <div className="screen-row">
+          <span>{total}</span>
+          <span>{operation}</span>
+          <span>{next}</span>
+        </div>
         <div className="operators">
           <div className="row-0">
-            <Button label="AC" />
-            <Button label="+/-" />
-            <Button label="%" />
+            <button id="AC" type="button" onClick={(e) => this.handleBtn(e.target.id)}>AC</button>
+            <button id="+/-" type="button" onClick={(e) => this.handleBtn(e.target.id)}>+/-</button>
+            <button id="%" type="button" onClick={(e) => this.handleBtn(e.target.id)}>%</button>
             <span>
-              <Button label="/" />
+              <button id="÷" className="btn" type="button" onClick={(e) => this.handleBtn(e.target.id)}>÷</button>
             </span>
           </div>
           <div className="row-1">
-            <Button label="7" />
-            <Button label="8" />
-            <Button label="9" />
+            <button id="7" type="button" onClick={(e) => this.handleBtn(e.target.id)}>7</button>
+            <button id="8" type="button" onClick={(e) => this.handleBtn(e.target.id)}>8</button>
+            <button id="9" type="button" onClick={(e) => this.handleBtn(e.target.id)}>9</button>
             <span>
-              <Button label="*" />
+              <button id="x" className="btn" type="button" onClick={(e) => this.handleBtn(e.target.id)}>x</button>
             </span>
           </div>
           <div className="row-2">
-            <Button label="4" />
-            <Button label="5" />
-            <Button label="6" />
+            <button id="4" type="button" onClick={(e) => this.handleBtn(e.target.id)}>4</button>
+            <button id="5" type="button" onClick={(e) => this.handleBtn(e.target.id)}>5</button>
+            <button id="6" type="button" onClick={(e) => this.handleBtn(e.target.id)}>6</button>
             <span>
-              <Button label="-" />
+              <button id="-" className="btn" type="button" onClick={(e) => this.handleBtn(e.target.id)}>-</button>
             </span>
           </div>
           <div className="row-3">
-            <Button label="1" />
-            <Button label="2" />
-            <Button label="3" />
+            <button id="1" type="button" onClick={(e) => this.handleBtn(e.target.id)}>1</button>
+            <button id="2" type="button" onClick={(e) => this.handleBtn(e.target.id)}>2</button>
+            <button id="3" type="button" onClick={(e) => this.handleBtn(e.target.id)}>3</button>
             <span>
-              <Button label="+" />
+              <button id="+" className="btn" type="button" onClick={(e) => this.handleBtn(e.target.id)}>+</button>
             </span>
           </div>
           <div className="row-4">
             <div className="zero">
-              <Button label="0" />
+              <button id="0" className="btn" type="button" onClick={(e) => this.handleBtn(e.target.id)}>0</button>
             </div>
-            <Button label="." />
+            <button id="." className="btn" type="button" onClick={(e) => this.handleBtn(e.target.id)}>.</button>
             <span>
-              <Button label="=" />
+              <button id="=" className="btn" type="button" onClick={(e) => this.handleBtn(e.target.id)}>=</button>
             </span>
           </div>
         </div>
