@@ -21,17 +21,25 @@ body {
   background-color: rgb(134, 146, 155, 0.1);
 }
 
-.screen-row input[type=text] {
-  padding: 1em;
-  width: 17.58em;
-  height: 2em;
+.screen-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  width: 16em;
+  height: 3em;
   background-color: #86929b;
   border: 2px solid #86929b;
+  box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
   outline: none;
   color: white;
   text-align: right;
   border-radius: 0.5em;
   margin-bottom: 0.5em;
+}
+
+.screen-row span {
+  margin-right: 0.2em;
 }
 
 button {
