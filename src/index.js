@@ -1,11 +1,21 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import { createRoot } from 'react-dom/client';
 import './style.css';
-import App from './app';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
+import Calculator from './pages/Calculator';
+import Quote from './pages/Quote';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Routes>
+      <Route path="/math-magicians" element={<Navbar />}>
+        <Route index element={<Home />} />
+        <Route path="/math-magicians/Calculator" element={<Calculator />} />
+        <Route path="/math-magicians/Quote" element={<Quote />} />
+      </Route>
+    </Routes>
+  </BrowserRouter>,
 );
