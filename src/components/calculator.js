@@ -18,7 +18,7 @@ const Calculate = () => {
   return (
     <div className="main">
       <div className="screen-row">
-        <span>{total}</span>
+        <span role="none">{total}</span>
         <span>{operation}</span>
         <span>{next}</span>
       </div>
